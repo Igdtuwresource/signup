@@ -27,10 +27,59 @@
       .badge:hover{
         color:black;
       }
+
+      *,
+*:before,
+*:after{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+body{
+    background-color: #0f72e5;
+}
+.popup{
+    background-color:#0f72e5 ;
+    width: 450px;
+    height:400px;
+    padding: 30px 40px;
+    position: absolute;
+    transform: translate(-50%,-50%);
+    left: 50%;
+    top: 50%;
+    border-radius: 8px;
+    font-family: "Poppins",sans-serif;
+    display: none;
+    text-align: center;
+}
+.popup button{
+    display: block;
+    margin:  0 0 20px auto;
+    background-color: transparent;
+    font-size: 30px;
+    color: #c5c5c5;
+    border: none;
+    outline: none;
+    cursor: pointer;
+}
+.popup p{
+    font-size: 14px;
+    text-align: justify;
+    margin: 20px 0;
+    line-height: 25px;
+}
+
     </style>
 </head>
 <body>
-
+  <div class="popup">
+    <button id="close">&times;</button>
+    <h2>Once you complete the Sign Up process, kindly click on</h2>
+    
+        "Already Have An Account" Button <br> & Login To Your Account
+    
+    
+</div>
   <div class="mb-5">
     <h3 class="mb-3">Sign Up</h3>
     <input type="text" placeholder="Fullname" id="nameInp" class="form-control mb-3">
@@ -143,5 +192,16 @@ function encPass(){
 submit.addEventListener("click", RegisterUser);
 
 </script>
+<script>window.addEventListener("load", function(){
+  setTimeout(
+      function open(event){
+          document.querySelector(".popup").style.display = "block";
+      },
+      1000
+  )
+});
+document.querySelector("#close").addEventListener("click", function(){
+  document.querySelector(".popup").style.display = "none";
+});</script>
 </body>
 </html>
